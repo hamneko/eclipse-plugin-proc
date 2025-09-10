@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: proc-editor
+Bundle-SymbolicName: plugin.proc;singleton:=true
+Bundle-Vendor: https://github.com/hamneko
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.cdt.core,
+ org.eclipse.core.runtime,
+ plugin.common,
+ org.eclipse.text
+Automatic-Module-Name: plugin.proc
+Bundle-RequiredExecutionEnvironment: JavaSE-17
