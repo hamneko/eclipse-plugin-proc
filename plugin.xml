@@ -10,4 +10,10 @@
     <contentType id="org.eclipse.cdt.core.cHeader" />
   </language>
 </extension>
+<extension point="org.eclipse.cdt.core.CodeFormatter">
+  <formatter
+    class="plugin.proc.PROCCodeFormatter"
+    id="formatter"
+    name="PROC"/>
+</extension>
 </plugin>
