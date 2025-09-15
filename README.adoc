@@ -1,1 +1,64 @@
-# eclipse-plugin-proc
+:toc:
+:toclevels: 5
+
+---
+
+= eclipse-plugin-proc
+
+An Eclipse plugin that analyzes and parses https://docs.oracle.com/en/database/oracle/oracle-database/23/lnpcc/introduction.html[Oracle Pro*C] unique syntax written in C source code.
+
+== Features
+
+* Syntax highlighting
+* Resolve host variables
+* Resolve sqlca without `#include <sqlca.h>` directive
+* Source code formatting
+* Resolve cursor identifier
+
+== Getting Started
+
+=== Prerequisites
+
+* Eclipse CDT (2023.3~)
+
+TIP: Older cdt versions may work, although not tested.
+
+=== Installation
+
+Put ```plugin.proc-x.x.x.YYYYMMDDhhmm.jar``` and ```plugin.common-x.x.x.YYYYMMDDhhmm.jar``` to Eclipseplugins directory (ex.~/eclipse/plugins) and start Eclipse.
+
+TIP: ```plugin.common-x.x.x.YYYYMMDDhhmm.jar``` can be downloaded from https://github.com/hamneko/eclipse-plugin-common/releases[this repository].
+
+=== Change Language Mappings
+
+From eclipse menu bar, select [Window]-[Preferences...]. Under `C/C++` select `Language Mappings`, add following settings and click [Apply and Close].
+
+.Language Mappings
+[options="header"]
+|===
+|Content Type|Language
+|C Header File|PROC
+|C Source File|PROC
+|===
+
+TIP: If you have custom file extension for Pro*C file (ex. xxx.pc), add File Types.
+
+=== Change Formatter
+
+From eclipse menu bar, select [Window]-[Preferences...]. Under `C/C++` - `Code Style` select `Formatter`, change Code Formatter from [built-in] to PROC and click [Apply and Close].
+
+== Building from Source
+
+Clone the repository:
+
+[source,sh]
+----
+$ git clone https://github.com/hamneko/eclipse-plugin-proc.git
+----
+
+Execute following command in cloned directory:
+
+[source,sh]
+----
+$ ./mvnw clean install
+----
