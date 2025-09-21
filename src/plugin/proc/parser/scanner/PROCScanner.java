@@ -89,9 +89,7 @@ public class PROCScanner extends PluginScanner {
 					immediateAfterVariable = true;
 					// Modify tokens to be treated as variables.
 					tokens().add(nextToken);
-					tokens().add(PluginTokenUtil.createAssignToken(this, nextToken));
-					tokens().add(PluginTokenUtil.createLiteralToken(this, nextToken, ""));
-					tokens().add(PluginTokenUtil.createSemiToken(this, nextToken));
+					PluginTokenUtil.addAssignLiteralTokens(this, nextToken);
 					continue;
 				}
 				if (":".equals(nextToken.toString())) {
@@ -100,9 +98,7 @@ public class PROCScanner extends PluginScanner {
 					immediateAfterVariable = true;
 					// Modify tokens to be treated as variables.
 					tokens().add(nextToken);
-					tokens().add(PluginTokenUtil.createAssignToken(this, nextToken));
-					tokens().add(PluginTokenUtil.createIntegerToken(this, nextToken, "0"));
-					tokens().add(PluginTokenUtil.createSemiToken(this, nextToken));
+					PluginTokenUtil.addAssignIntegerTokens(this, nextToken);
 					colonStarted = true;
 					immediateAfterComma = false;
 					continue;
@@ -122,9 +118,7 @@ public class PROCScanner extends PluginScanner {
 					immediateAfterVariable = true;
 					// Modify tokens to be treated as variables.
 					tokens().add(nextToken);
-					tokens().add(PluginTokenUtil.createAssignToken(this, nextToken));
-					tokens().add(PluginTokenUtil.createIntegerToken(this, nextToken, "0"));
-					tokens().add(PluginTokenUtil.createSemiToken(this, nextToken));
+					PluginTokenUtil.addAssignIntegerTokens(this, nextToken);
 					continue;
 				}
 				if (";".equals(nextToken.toString())) {
@@ -149,10 +143,7 @@ public class PROCScanner extends PluginScanner {
 		dummyToken.setEndOffset(nextToken.getOffset() - 1);
 		PluginTokenUtil.addSqlcaTokensProc(this, dummyToken);
 		// Initialize sqlca struct.
-		tokens().add(PluginTokenUtil.createStructToken(this, dummyToken));
-		tokens().add(PluginTokenUtil.createIdentifierToken(this, dummyToken, "sqlca"));
-		tokens().add(PluginTokenUtil.createIdentifierToken(this, dummyToken, "sqlca"));
-		tokens().add(PluginTokenUtil.createSemiToken(this, dummyToken));
+		PluginTokenUtil.addSqlcaStructTokens(this, dummyToken);
 	}
 
 }
