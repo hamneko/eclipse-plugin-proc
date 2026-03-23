@@ -29,7 +29,7 @@ public class PROCLanguage extends GCCLanguage {
 
 	@Override
 	public String getId() {
-		return "plugin.proc.editor";
+		return "plugin.proc.language";
 	}
 
 	@SuppressWarnings("unchecked")
